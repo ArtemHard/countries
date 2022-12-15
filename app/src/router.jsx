@@ -10,6 +10,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <div>InnaX Error</div>,
     children: [
       {
         path: "deneme",
