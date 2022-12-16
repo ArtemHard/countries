@@ -18,7 +18,16 @@ const InputContainer = styled.label`
     width: 280px;
   }
 `;
-const Input = styled.input.attrs({})``;
+const Input = styled.input.attrs({
+  type: "search",
+  placeholder: "Поиск страны",
+})`
+  margin-left: 2rem;
+  border: none;
+  outline: none;
+  background-color: var(--colors-ui-base);
+  color: var(--color-text);
+`;
 
 export const Search = ({ search, setSearch = {} }) => {
   return (
