@@ -5,6 +5,9 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import { Home } from "./Home";
+import { Details } from "./pages/Details";
+import { HomePage } from "./pages/HomePage";
+import { NotFound } from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +30,12 @@ const router = createBrowserRouter([
     element: <Home />,
   },
 ]);
+
 const router2 = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<App />} />
-      <Route path='/home' element={<Home />} />
+      <Route path='/' element={<HomePage />} errorElement={<NotFound />} />
+      <Route path='/country/:name' element={<Details />} />
     </>
   )
 );
