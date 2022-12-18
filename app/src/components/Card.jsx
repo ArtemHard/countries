@@ -18,14 +18,30 @@ const CardImage = styled.img`
 `;
 
 const CardBody = styled.div`
-  padding: 1rem 1.5rem 1.5 rem;
+  padding: 1rem 1.5rem 1.5rem;
 `;
 
-const CardTitle = styled.h3``;
+const CardTitle = styled.h3`
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+`;
 
-const CardList = styled.ul``;
+const CardList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0 0;
+`;
 
-const CardListItem = styled.li``;
+const CardListItem = styled.li`
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  font-weight: var(--fw-light);
+
+  & > b {
+    font-weight: var(--fw-bold);
+  }
+`;
 
 export const Card = ({ img, name, info = [], onClick }) => {
   return (
