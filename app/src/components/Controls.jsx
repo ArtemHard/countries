@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Search } from "./Search";
 import { useState } from "react";
 import { CustomSelect } from "./CustomSelect";
@@ -22,9 +22,31 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Controls = () => {
+export const Controls = ({ onSearch }) => {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
+
+  useEffect(() => {
+    let regionValue = "";
+    if (region?.value === "Африка") {
+      regionValue = "Africa";
+    }
+    if (region?.value === "Америка") {
+      regionValue = "Americas";
+    }
+    if (region?.value === "Азия") {
+      regionValue = "Asia";
+    }
+    if (region?.value === "Европа") {
+      regionValue = "Europe";
+    }
+    if (region?.value === "Океания") {
+      regionValue = "Oceania";
+    }
+
+    onSearch(search, regionValue);
+    // eslint-disable-next-line
+  }, [search, region]);
 
   return (
     <Wrapper>
