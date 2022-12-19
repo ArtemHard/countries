@@ -4,9 +4,13 @@ import { useEffect, useState } from "react";
 import { Controls } from "../components/Controls";
 import { List } from "../components/List";
 import { Card } from "../components/Card";
+import { ALL_COUNTRIES } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [countries, setCounries] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(ALL_COUNTRIES).then(({ data }) => setCounries(data));
@@ -35,7 +39,13 @@ export const HomePage = () => {
               },
             ],
           };
-          return <Card key={country.name} {...countryInfo} />;
+          return (
+            <Card
+              key={country.name}
+              {...countryInfo}
+              onClick={() => navigate(`/country/${country.name}`)}
+            />
+          );
         })}
       </List>
     </>
