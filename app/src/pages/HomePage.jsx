@@ -32,7 +32,6 @@ export const HomePage = ({ countries, setCountries }) => {
   };
 
   useEffect(() => {
-    console.log(countries.length);
     if (!countries.length) {
       axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
     }

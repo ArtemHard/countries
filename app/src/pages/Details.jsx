@@ -1,9 +1,30 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { IoArrowBack } from "react-icons/io5";
+import axios from "axios";
+import { searchByCountry } from "../constants";
+import { Button } from "../components/Button";
 
 export const Details = () => {
-  const params = useParams();
-  // console.log(params.name);
+  const { name } = useParams();
 
-  return <div>Details {params.name}</div>;
+  const navigate = useNavigate();
+
+  const [country, setCountry] = useState(null);
+  console.log(country);
+  useEffect(() => {
+    axios.get(searchByCountry(name)).then(({ data }) => {
+      setCountry(...data);
+    });
+  }, [name]);
+
+  return (
+    <div>
+      <Button onClick={() => navigate(-1)}>
+        <IoArrowBack />
+        Назад
+      </Button>
+      Details {name}
+    </div>
+  );
 };
