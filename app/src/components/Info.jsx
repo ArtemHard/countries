@@ -47,13 +47,43 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const ListItem = styled.li``;
+const ListItem = styled.li`
+  line-height: 1.8;
+  & > b {
+    font-weight: var(--fw-bold);
+  }
+`;
 
-const Meta = styled.div``;
+const Meta = styled.div`
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
 
-const TagGroup = styled.div``;
+  & > b {
+    font-weight: var(--fw-bold);
+  }
 
-const Tag = styled.span``;
+  @media (min-width: 767px) {
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+const TagGroup = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
+
+const Tag = styled.span`
+  padding: 0 1rem;
+  background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  height: 1.5;
+  cursor: pointer;
+`;
 
 export const Info = (props) => {
   const {
