@@ -109,9 +109,11 @@ export const Info = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(filterByCode(borders)).then(({ data }) => {
-      setNeighbors(data.map((c) => c.name));
-    });
+    if (!!borders.length) {
+      axios.get(filterByCode(borders)).then(({ data }) => {
+        setNeighbors(data.map((c) => c.name));
+      });
+    }
   }, [borders]);
 
   return (

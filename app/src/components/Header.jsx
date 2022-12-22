@@ -32,7 +32,6 @@ const ModeSwitcher = styled.div`
 
 export const Header = () => {
   const [theme, setTheme] = useState("light");
-
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
